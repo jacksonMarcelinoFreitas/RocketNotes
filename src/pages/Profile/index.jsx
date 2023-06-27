@@ -14,41 +14,40 @@ export function Profile(){
             </header>
             <Form>
                 <Avatar>
-                    <img 
+                    <img
                         src="https://github.com/jacksonMarcelinoFreitas.png"
-                        alt="Foto do Usuário" 
+                        alt="Foto do Usuário"
                     />
 
                     <label htmlFor="avatar">
                         <FiCamera/>
-                        <input 
+                        <input
                             id="avatar"
                             type="file"
                         />
                     </label>
-
                 </Avatar>
-                <Input 
+                <Input
                     placeholder="Nome"
                     type="text"
                     icon={FiUser}
                 />
-                <Input 
+                <Input
                     placeholder="Email"
                     type="text"
                     icon={FiMail}
                 />
-                <Input 
+                <Input
                     placeholder="Senha atual"
                     type="password"
                     icon={FiLock}
                 />
-                <Input 
+                <Input
                     placeholder="Nova senha"
                     type="password"
                     icon={FiLock}
                 />
-                <Button 
+                <Button
                     title="Salvar"
                 />
             </Form>
