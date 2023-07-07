@@ -39,8 +39,8 @@ function AuthProvider({ children }){
   async function updateProfile({ user, avatarFile }){
     try{
       if(avatarFile){
-        const fileUpdloadForm = new FormData();
-        fileUpdloadForm.append("avatar", avatarFile);
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
 
         const response = await api.patch("/users/avatar", fileUploadForm);
         user.avatar = response.data.avatar;
@@ -88,7 +88,7 @@ function AuthProvider({ children }){
       signIn,
       signOut,
       updateProfile,
-      user:data.user,
+      user: data.user
       }}>
 
       {children}

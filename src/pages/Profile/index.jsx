@@ -5,7 +5,7 @@ import { Button } from "../../components/Button";
 import {Container, Form, Avatar} from "./styles";
 import { Link } from 'react-router-dom';
 import { api } from '../../service/api';
-import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera} from "react-icons/fi";
 
 export function Profile(){
@@ -17,7 +17,8 @@ export function Profile(){
     const [passwordNew, setPasswordNew] = useState();
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
-    const [avatar, setAvatar] = useState(user.avatar);
+
+    const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
 
     async function handleUpdate(){
@@ -37,7 +38,6 @@ export function Profile(){
 
         const imagePreview = URL.createObjectURL(file);
         setAvatar(imagePreview); //mostrar arquivo selecionado
-
     }
 
     return(
