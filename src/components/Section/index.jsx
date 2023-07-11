@@ -1,4 +1,3 @@
-//Neste componente a funçao recebe como parametro o title (links uteis) e também o children (ul)
 import { Container } from "./styles";
 
 export function Section({ title,  children }) {
@@ -9,3 +8,5 @@ export function Section({ title,  children }) {
         </Container>
     )
 };
+
+//Neste componente a funçao recebe como parametro o title (links uteis) e também o children (ul)

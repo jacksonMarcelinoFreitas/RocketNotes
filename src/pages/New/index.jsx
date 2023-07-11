@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Container, Form} from "./styles";
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { Textarea } from "../../components/Texarea";
+import { ButtonText } from '../../components/ButtonText';
 import { NoteItem } from "../../components/NoteItem";
+import { Textarea } from "../../components/Texarea";
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
-import { Link } from 'react-router-dom';
-import { ButtonText } from '../../components/ButtonText';
+import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
+import { Input } from "../../components/Input";
+import { Container, Form} from "./styles";
 import { api } from '../../service/api';
+import { useState } from "react";
+// import { Link } from 'react-router-dom';
 
 
 export function New(){
@@ -29,7 +29,8 @@ function handleBack(){
 }
 
 function handleAddLink(){
-    setLinks(prevState => [...prevState, newLink]); //pegando tudo que tem antes e depejando no mesmo array com o novo link
+    //pegando tudo que tem antes e depejando no mesmo array com o novo link
+    setLinks(prevState => [...prevState, newLink]);
     setNewLink("");
 }
 
@@ -38,7 +39,8 @@ function handleRemoveLink(deleted){
 }
 
 function handleAddTag(){
-    setTags(prevState => [...prevState, newTag]); //pegando tudo que tem antes e depejando no mesmo array com o novo link
+    //pegando tudo que tem antes e depejando no mesmo array com o novo link
+    setTags(prevState => [...prevState, newTag]);
     setNewTag("");
 }
 

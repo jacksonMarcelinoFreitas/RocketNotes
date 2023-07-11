@@ -1,12 +1,12 @@
 //Neste arquivo faz o import dos componentes e usa-os colocando o conteúdo específico deles
 //Neste os stilos já estão associados ao componente, representado pela tag
+import { ButtonText } from "../../components/ButtonText/";
+import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Links, Content } from "./styles.js";
 import { Header } from "../../components/Header/";
 import { Button } from "../../components/Button/";
 import { Section } from "../../components/Section/";
 import { Tag } from "../../components/Tag/";
-import { ButtonText } from "../../components/ButtonText/";
-import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { api } from '../../service/api';
 

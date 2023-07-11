@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { useAuth } from '../../hooks/auth';
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-import {Container, Form, Avatar} from "./styles";
-// import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { api } from '../../service/api';
-import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera} from "react-icons/fi";
-import { ButtonText } from '../../components/ButtonText';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import {Container, Form, Avatar} from "./styles";
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+import { api } from '../../service/api';
+import { useState } from 'react';
+// import { ButtonText } from '../../components/ButtonText';
+// import { Link } from 'react-router-dom';
 
 
 export function Profile(){
@@ -36,8 +36,8 @@ export function Profile(){
             password: passwordNew,
             old_password: passwordOld
         }
-        const userUpdated = Object.assign(user, updated); //vai combinar objetos, sobreescrevendo valores;
-
+        //vai combinar objetos, sobreescrevendo valores;
+        const userUpdated = Object.assign(user, updated);
         await updateProfile({ user: userUpdated, avatarFile })
     }
 

@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react';
-import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
+import { ButtonText } from '../../components/ButtonText';
+import { Section } from '../../components/Section';
+import { FiPlus, FiSearch } from 'react-icons/fi';
+import { Header } from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
-
 import { Input } from '../../components/Input';
 import { Note } from '../../components/Note';
-import { Header } from '../../components/Header';
-import { Section } from '../../components/Section';
-import { ButtonText } from '../../components/ButtonText';
+import { useState, useEffect } from 'react';
 import { api } from '../../service/api';
 
 export function Home() {
@@ -55,7 +54,6 @@ export function Home() {
         }
 
         fetchNotes();
-
     }, [tagsSelected, search]);
 
     return(

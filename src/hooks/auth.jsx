@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect} from 'react';
 import { api } from '../service/api';
+import { createContext, useContext, useState, useEffect} from 'react';
 
 const AuthContext = createContext({});
 
@@ -9,7 +9,8 @@ function AuthProvider({ children }){
 
   async function signIn({ email, password }){
     try {
-      const response = await api.post ('/sessions', { email, password}); //fazer requisição para o back-end
+      //fazer requisição para o back-end
+      const response = await api.post ('/sessions', { email, password});
       const { user, token } = response.data;
 
       localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
@@ -58,8 +59,6 @@ function AuthProvider({ children }){
         alert("Não foi possível atualizar o perfil.")
       }
     }
-
-
   }
 
   /*
@@ -98,7 +97,6 @@ function AuthProvider({ children }){
 
 function useAuth(){
   const context = useContext(AuthContext);
-
   return context;
 }
 
