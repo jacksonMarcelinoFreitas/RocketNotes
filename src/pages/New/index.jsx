@@ -42,6 +42,12 @@ function handleRemoveTag(deleted){
 }
 
 async function handleNewNotes(){
+    if(newLink){
+        return alert('Você não adicionou o link. Clique em adicionar ou deixe vazio!')
+    }
+    if(newTag){
+        return alert('Você não adicionou a tag. Clique em adicionar ou deixe vazio!')
+    }
     await api.post('/notes',{
         title,
         description,
