@@ -6,7 +6,7 @@ export const Container = styled.div`
 
     display: grid;
     grid-template-rows: 105px auto;
-    grid-template-areas: 
+    grid-template-areas:
     "header"
     "content"
     ;
@@ -35,7 +35,7 @@ export const Form = styled.form`
         margin-bottom: 36px;
     }
 
-    a {
+    button {
         font-size: 20px;
         color: ${({ theme }) => theme.COLORS.GRAY_100}
     }

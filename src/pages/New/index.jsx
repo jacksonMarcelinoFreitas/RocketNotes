@@ -8,6 +8,7 @@ import { NoteItem } from "../../components/NoteItem";
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
 import { Link } from 'react-router-dom';
+import { ButtonText } from '../../components/ButtonText';
 import { api } from '../../service/api';
 
 
@@ -22,6 +23,10 @@ const [ newLink, setNewLink ] = useState("");
 
 const [ tags, setTags ] = useState([]);
 const [ newTag, setNewTag ] = useState("");
+
+function handleBack(){
+    navigate(-1)
+}
 
 function handleAddLink(){
     setLinks(prevState => [...prevState, newLink]); //pegando tudo que tem antes e depejando no mesmo array com o novo link
@@ -57,7 +62,7 @@ async function handleNewNotes(){
 
     alert('Nota criada com sucesso!');
 
-    navigate('/');
+    navigate(-1);
 }
 
     return(
@@ -67,7 +72,11 @@ async function handleNewNotes(){
                 <Form>
                     <header>
                         <h1>Criar nota</h1>
-                        <Link to="/">voltar</Link>
+                        {/* <Link>Voltar</Link> */}
+                        <ButtonText
+                            title="Voltar"
+                            onClick={handleBack}
+                        />
                     </header>
 
                     <Input

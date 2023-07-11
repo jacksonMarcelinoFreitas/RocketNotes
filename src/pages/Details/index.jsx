@@ -1,41 +1,105 @@
 //Neste arquivo faz o import dos componentes e usa-os colocando o conteúdo específico deles
 //Neste os stilos já estão associados ao componente, representado pela tag
 import { Container, Links, Content } from "./styles.js";
-import { Header } from "../../components/header/"
+import { Header } from "../../components/Header/";
 import { Button } from "../../components/Button/";
 import { Section } from "../../components/Section/";
 import { Tag } from "../../components/Tag/";
 import { ButtonText } from "../../components/ButtonText/";
+import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { api } from '../../service/api';
 
 export function Details(){
+    const params = useParams();
+    const navigate = useNavigate();
+    const [ data, setData ] = useState(null);
+
+    function handleBack(){
+        navigate(-1)
+    }
+
+    async function handleRemoveNote(){
+        const confirm = window.confirm('Deseja realmente remover esta nota?');
+
+        if(confirm){
+            await api.delete(`/notes/${params.id}`);
+            navigate(-1);
+        }
+    }
+
+    useEffect(()=>{
+        async function fetchNote(){
+            const response = await api.get(`/notes/${params.id}`);
+            setData(response.data);
+        }
+
+        fetchNote();
+    },[])
+
     return(
         <Container>
             <Header/>
 
-            <main>
-                <Content>
-                <ButtonText title="Excluir nota"/>
+            {
+                // mostra o data casa haja conteudos
+                data &&
+                <main>
+                    <Content>
+                    <ButtonText
+                        title="Excluir nota"
+                        onClick={handleRemoveNote}
+                    />
 
-                <h1>Introduçao ao react</h1>
+                    <h1>
+                        {data.title}
+                    </h1>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, officia excepturi. Neque, deserunt saepe maxime recusandae hic dolor consequatur omnis nam ipsam, debitis culpa ad minima corporis doloremque tempore inventore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam iure sed nam nisi labore error nobis fuga cumque recusandae in obcaecati dicta rerum, temporibus molestias odio alias velit cum possimus.</p>
-                
-                <Section title="links úteis">
-                    <Links>
-                        <li><a href="#">https://www.rocketseat.com.br/</a></li>
-                        <li><a href="#">https://www.rocketseat.com.br/</a></li>
-                    </Links>
-                </Section>
+                    <p>
+                        {data.description}
+                    </p>
 
-                <Section title="Marcadores">
-                    <Tag title="express"/>
-                    <Tag title="nodejs"/>
-                </Section>
+                    {
+                        //só renderiza a sessão se houver links
+                        data.links &&
+                        <Section title="links úteis">
+                            <Links>
+                                {
+                                    data.links.map(link => (
+                                        <li key={String(link.id)}>
+                                            <a href={link.url} target="_blank">
+                                                {link.url}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </Links>
+                        </Section>
+                    }
 
-                <Button title="Voltar"/>
+                    {
+                        data.tags &&
+                        <Section title="Marcadores">
+                            {
+                                data.tags.map( tag => (
+                                    <Tag
+                                        key={String(tag.id)}
+                                        title={tag.name}
+                                    />
+                                ))
+                            }
+                        </Section>
+                    }
 
-                </Content>
-            </main>
+                    <Button
+                        title="Voltar"
+                        onClick={handleBack}
+                    />
+
+                    </Content>
+                </main>
+            }
+
         </Container>
     )
 }
