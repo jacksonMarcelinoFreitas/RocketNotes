@@ -2,36 +2,29 @@
 
 #
 
-<h2 align="left">Login page<h1>
-<img width="100%" src="./src/assets/print5.png">
-
-# 
-
-<h2 align="left">Menu page<h1>
-<img width="100%" src="./src/assets/print2.png">
+<h2 align="left">🔰Login page<h1>
+<img width="100%" src="./src/assets/logIn.gif">
 
 #
 
-<h2 align="left">Profile page<h1>
-<img width="100%" src="./src/assets/print3.png">
+<h2 align="left">🔰Create note One<h1>
+<img width="100%" src="./src/assets/createNote1.gif">
 
 #
 
-<h2 align="left">Register page<h1>
-<img width="100%" src="./src/assets/print4.png">
+<h2 align="left">🔰Create note Two<h1>
+<img width="100%" src="./src/assets/createNote2.gif">
 
 #
 
-<h2 align="left">Note creation page<h1>
-<img width="100%" src="./src/assets/print1.png">
+<h2 align="left">🔰Edit profile<h1>
+<img width="100%" src="./src/assets/profile.gif">
 
+#
+
+<h2 align="left">🔰Logout page<h1>
+<img width="100%" src="./src/assets/logOut.gif">
 
 
 <h1 align="center">Tecnologies<h1>
-<p align="center">🔹 ViteJs 🔹 ReactJs 🔹 JavaScript 🔹 HTML 🔹 CSS</p>
-
-
-
-
-
-
+<p align="center">🔹 NodeJS 🔹 ViteJs 🔹 ReactJs 🔹 JavaScript 🔹 HTML 🔹 CSS 🔹 SQLite</p>
